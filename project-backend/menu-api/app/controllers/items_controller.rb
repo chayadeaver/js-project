@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
 
     def create
         if params[:menu_id]
-            menu = Item.find_by(menu_id: params[:menu_id])
+            menu = Menu.find_by(menu_id: params[:menu_id])
             item = menu.items.build(item_params)
             if item.save
                 render json: ItemSerializer.new(item).serialized_hash
