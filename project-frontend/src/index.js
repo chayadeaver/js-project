@@ -1,2 +1,2 @@
 const app = new App
-console.log(app)
+app.getItems()
