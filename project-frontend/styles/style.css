@@ -55,3 +55,25 @@ h1 {
     width: 200px;
     margin: auto;
 }
+
+ul#menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid red;
+    height: 100%;
+}
+
+.menu-nav {
+    border: 5px solid red;
+    background-color: white;
+    height: 10vh;
+}
+
+.menu-name {
+    font-size: 20px;
+    border: 1px solid red;
+    height: 100%;
+    cursor: pointer;
+}
