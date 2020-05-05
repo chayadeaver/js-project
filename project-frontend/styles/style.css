@@ -17,7 +17,7 @@ h1 {
 }
 
 .container {
-    display: none;
+    display: flex;
     flex-direction: row;
     text-align: center;
     background-color: white;
@@ -50,21 +50,24 @@ ul#menu {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border: 1px solid red;
+    border: 1px solid rgb(112, 50, 50);
     height: 100%;
 }
 
 .menu-nav {
-    border: 5px solid red;
+    border: 5px solid rgb(112, 50, 50);
     background-color: white;
     height: 10vh;
 }
 
 .menu-name {
     font-size: 20px;
-    border: 1px solid red;
-    height: 100%;
+    border: 1px solid rgb(92, 19, 19);
+    border-radius: 5px;
+    background-color: rgb(255, 219, 219);
     cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
 }
 
 .item-card {
@@ -83,11 +86,11 @@ div.item-image {
     width: 250px;
 }
 
-.item-image img {
+/* .item-image img {
     width: 100%;
     border-radius: 10px;
     border: 1px solid #663939;
-}
+} */
 
 .name-and-price {
     display: flex;
@@ -95,7 +98,7 @@ div.item-image {
     padding-top: 15px;
 }
 
-.item-desc {
+.item-description {
     padding-top: 15px;
 }
 
