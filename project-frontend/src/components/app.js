@@ -3,14 +3,8 @@ class App {
     //     this.items = new Items()
     // }
     start() {
-        const allItems = new Items()
-        allItems.adapter.getItems().then(items => {
-            items.forEach(item => {
-                const itemObj = new Item(item.attributes.name, item.attributes.price, item.attributes.description, item.id, item.attributes.menu.id, item.attributes.menu.name)
-                console.log(itemObj.createItemCard())
-            });
-        })
         const menu = new Menu()
+        menu.renderAllItems()
         menu.addListenerToMenu()
     }
 
