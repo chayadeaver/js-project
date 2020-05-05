@@ -11,11 +11,18 @@ class ItemsController < ApplicationController
 
     def create
         if params[:menu_id]
-            menu = Menu.find_by(menu_id: params[:menu_id])
+            menu = Menu.find_by(id: params[:menu_id])
             item = menu.items.build(item_params)
             if item.save
-                render json: ItemSerializer.new(item).serialized_hash
+                render json: ItemSerializer.new(item).serialized_json
             end
+        end
+    end
+
+    def destroy
+        item = Item.find_by(id: params[:id])
+        if item.destroy
+            render json: { message: "Item deleted"}
         end
 
     end
@@ -23,6 +30,6 @@ class ItemsController < ApplicationController
 private
 
     def item_params
-        params.require(:item).permit(:name, :price, :description, :image_url, :menu_id)
+        params.permit(:name, :price, :description, :image_url, :menu_id)
     end
 end
