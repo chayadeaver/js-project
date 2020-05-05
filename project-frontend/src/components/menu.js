@@ -22,12 +22,22 @@ class Menu {
                         this.clearItemCards()
                         this.renderDinnerItems()
                         break
+                    case "Add New Items":
+                        this.clearItemCards()
+                        this.renderAddMenuItemForm()
+                        break
                     default:
                         this.clearItemCards()
                         this.renderAllItems()
                 }
             })
         })
+    }
+
+    renderAddMenuItemForm(){
+        const form = document.querySelector("#create-menu-item-form")
+        form.style.display = "block"
+        form.style.margin = "0 auto"
     }
 
     clearItemCards() {
