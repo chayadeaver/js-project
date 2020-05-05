@@ -15,7 +15,7 @@ class Item {
         const itemCard = document.createElement("div")
         itemCard.className = "item-card"
         itemCard.setAttribute("data-id", `${this.id}`)
-        itemCard.setAttribute("data-id", `${this.menu_id}`)
+        itemCard.setAttribute("data-menu-id", `${this.menu_id}`)
         const itemImage = document.createElement("div")
         itemImage.className = "item-image"
         itemImage.style.backgroundImage = `url("${this.image_url}")`
