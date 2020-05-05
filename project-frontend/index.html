@@ -23,13 +23,40 @@
             <li class="menu-name">Lunch</li>
             <li class="menu-name">Dinner</li>
             <li class="menu-name">All Items</li>
+            <li class="menu-name">Add New Items</li>
 
 
         </ul>
         
     </nav>
     <div class="container">
-        
+        <form id="create-menu-item-form">
+            <label for="exampleFormControlSelect1">Menu Name</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+            <option selected="selected">All Items</option>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            </select>
+        <div class="form-group">
+            <label for="Item Name">Item Name</label>
+            <input type="item-name" class="form-control" id="item-name" aria-describedby="emailHelp" placeholder="Enter Item name">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="Enter Item Price">
+        </div>
+        <div class="form-group">
+            <label for="image">Image Url</label>
+            <input type="text" class="form-control" id="price" placeholder="Enter image address link">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </form>
+
         
         
 
