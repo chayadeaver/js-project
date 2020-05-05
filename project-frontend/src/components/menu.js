@@ -11,40 +11,36 @@ class Menu {
                 container.style.display = "flex"
                 switch(menu.textContent) {
                     case "Breakfast":
-                        this.clearItemCards()
+                        this.clearPage()
                         this.renderBreakfastItems()
                         break
                     case "Lunch":
-                        this.clearItemCards()
+                        this.clearPage()
                         this.renderLunchItems()
                         break
                     case "Dinner":
-                        this.clearItemCards()
+                        this.clearPage()
                         this.renderDinnerItems()
                         break
                     case "Add New Items":
-                        this.clearItemCards()
+                        this.clearPage()
                         this.renderAddMenuItemForm()
                         break
                     default:
-                        this.clearItemCards()
+                        this.clearPage()
                         this.renderAllItems()
                 }
             })
         })
     }
 
-    renderAddMenuItemForm(){
+    clearPage() {
         const form = document.querySelector("#create-menu-item-form")
-        form.style.display = "block"
-        form.style.margin = "0 auto"
-    }
-
-    clearItemCards() {
         const clearItems = document.querySelectorAll(".item-card")
         Array.from(clearItems).forEach(item => {
             item.remove()
         })
+        form.style.display = "none"
     }
     
     renderBreakfastItems() {
@@ -82,8 +78,28 @@ class Menu {
         allItems.adapter.getItems().then(items => {
             items.forEach(item => {
                 const itemObj = new Item(item.attributes.name, item.attributes.price, item.attributes.description, item.attributes.image_url, item.id, item.attributes.menu.id, item.attributes.menu.name)
-                console.log(itemObj.createItemCard())
+                itemObj.createItemCard()
             });
+        })
+    }
+
+    renderAddMenuItemForm(){
+        const form = document.querySelector("#create-menu-item-form")
+        form.style.display = "block"
+        form.style.margin = "0 auto"
+        this.populateMenuNameToForm()
+    }
+
+    populateMenuNameToForm() {
+        const menu = new Menus()
+        menu.adapter.getMenus().then(menus => {
+            menus.forEach(menu => {
+                // console.log(menu.id)
+                const selectBox = document.querySelector("#menu-select")
+                const option = document.createElement("option")
+                option.textContent = menu.attributes.name
+                selectBox.append(option)
+            })
         })
     }
 }
