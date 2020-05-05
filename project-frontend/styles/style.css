@@ -102,3 +102,7 @@ div.item-image {
     padding-top: 15px;
 }
 
+#create-menu-item-form {
+    display: none;
+    
+}
