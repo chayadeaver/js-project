@@ -7,7 +7,7 @@ class Item {
         this.id = id
         this.menu_id = menu_id
         this.menu_name = menu_name
-
+        this.itemsAdapter = new ItemsAdapter()
     }
 
     createItemCard() {
@@ -23,6 +23,7 @@ class Item {
         itemImage.style.backgroundSize = "cover"
         itemImage.style.backgroundPosition = "center"
         itemImage.style.height = "300px"
+        itemImage.style.borderRadius = "10px"
         // const imgTag = document.createElement("img")
         // imgTag.src = this.image_url
         const itemNamePrice = document.createElement("div")
@@ -36,11 +37,20 @@ class Item {
         const itemDesc = document.createElement("div")
         itemDesc.className = "item-description"
         itemDesc.textContent = this.description
-
+        const deleteBtn = document.createElement("button")
+        deleteBtn.className = "delete-item"
+        deleteBtn.textContent = "Delete Item"
+        deleteBtn.addEventListener("click", (e) => this.deleteItem(e))
         //appending to parent
         // itemImage.appendChild(imgTag)
         itemNamePrice.append(itemName, itemPrice)
-        itemCard.append(itemImage, itemNamePrice, itemDesc)
+        itemCard.append(itemImage, itemNamePrice, itemDesc, deleteBtn)
         container.append(itemCard)
     }
+
+    deleteItem(e) {
+        const id = e.target.parentElement.dataset.id
+        this.itemsAdapter.deleteItems(id).then(() => e.target.parentElement.remove() )
+    }
 }
+
