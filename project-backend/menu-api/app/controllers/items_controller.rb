@@ -10,12 +10,9 @@ class ItemsController < ApplicationController
     end
 
     def create
-        if params[:menu_id]
-            menu = Menu.find_by(id: params[:menu_id])
-            item = menu.items.build(item_params)
-            if item.save
-                render json: ItemSerializer.new(item).serialized_json
-            end
+        item = Item.new(item_params)
+        if item.save
+            render json: ItemSerializer.new(item).serialized_json
         end
     end
 
@@ -30,6 +27,6 @@ class ItemsController < ApplicationController
 private
 
     def item_params
-        params.permit(:name, :price, :description, :image_url, :menu_id)
+        params.require(:item).permit(:name, :price, :description, :image_url, :menu_id)
     end
 end
