@@ -1,6 +1,10 @@
 class Menu {
     constructor(name){
         this.name = name
+        this.menusAdapter = new MenusAdapter()
+        this.itemsAdapter = new ItemsAdapter()
+        this.form = document.querySelector("#create-menu-item-form")
+        this.populateMenuNameToForm()
     }
 
     addListenerToMenu() {
@@ -35,17 +39,15 @@ class Menu {
     }
 
     clearPage() {
-        const form = document.querySelector("#create-menu-item-form")
         const clearItems = document.querySelectorAll(".item-card")
         Array.from(clearItems).forEach(item => {
             item.remove()
         })
-        form.style.display = "none"
+        this.form.style.display = "none"
     }
     
     renderBreakfastItems() {
-        const breakfast = new Menus()
-        breakfast.adapter.getMenus().then(menus => {
+        this.menusAdapter.getMenus().then(menus => {
             menus[0].attributes.items.forEach(item => {
                 const breakfastItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
                 breakfastItem.createItemCard()
@@ -54,8 +56,7 @@ class Menu {
     }
 
     renderLunchItems() {
-        const lunch = new Menus()
-        lunch.adapter.getMenus().then(menus => {
+        this.menusAdapter.getMenus().then(menus => {
             menus[1].attributes.items.forEach(item => {
                 const lunchItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
                 lunchItem.createItemCard()
@@ -64,8 +65,7 @@ class Menu {
     }
 
     renderDinnerItems() {
-        const dinner = new Menus()
-        dinner.adapter.getMenus().then(menus => {
+        this.menusAdapter.getMenus().then(menus => {
             menus[2].attributes.items.forEach(item => {
                 const dinnerItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
                 dinnerItem.createItemCard()
@@ -74,8 +74,7 @@ class Menu {
     }
 
     renderAllItems() {
-        const allItems = new Items()
-        allItems.adapter.getItems().then(items => {
+        this.itemsAdapter.getItems().then(items => {
             items.forEach(item => {
                 const itemObj = new Item(item.attributes.name, item.attributes.price, item.attributes.description, item.attributes.image_url, item.id, item.attributes.menu.id, item.attributes.menu.name)
                 itemObj.createItemCard()
@@ -84,22 +83,45 @@ class Menu {
     }
 
     renderAddMenuItemForm(){
-        const form = document.querySelector("#create-menu-item-form")
-        form.style.display = "block"
-        form.style.margin = "0 auto"
-        this.populateMenuNameToForm()
+        this.form.style.display = "block"
+        this.form.style.margin = "0 auto"
+        this.form.addEventListener("submit", (e) => this.addNewMenuItem(e)) 
     }
 
     populateMenuNameToForm() {
-        const menu = new Menus()
-        menu.adapter.getMenus().then(menus => {
+        this.menusAdapter.getMenus().then(menus => {
             menus.forEach(menu => {
                 // console.log(menu.id)
                 const selectBox = document.querySelector("#menu-select")
                 const option = document.createElement("option")
                 option.textContent = menu.attributes.name
+                option.value = menu.id
                 selectBox.append(option)
             })
         })
     }
+
+    addNewMenuItem(e) {
+        e.preventDefault()
+        const menuNameSelect = document.querySelector("#menu-select").value
+        const itemName = document.querySelector("#item-name").value
+        const itemPrice = document.querySelector("#price").value
+        const itemImage = document.querySelector("#image-url").value
+        const itemDescription = document.querySelector("#description").value
+        const data = {
+            name: itemName,
+            price: itemPrice,
+            image_url: itemImage,
+            description: itemDescription,
+            menu_id: menuNameSelect
+        }
+        this.itemsAdapter.postItems(data).then(data => {
+            alert("Item created!")
+            this.form.reset()
+            this.clearPage()
+            this.renderAllItems()
+        })
+    }
+
+
 }
