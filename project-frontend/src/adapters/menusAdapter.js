@@ -5,7 +5,8 @@ class MenusAdapter{
 
     getMenus() {
         return fetch(this.baseURL)
-        .then(resp => resp.json)
+        .then(resp => resp.json())
         .then(json => json.data)
     }
+
 }
