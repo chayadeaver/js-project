@@ -1,4 +1,4 @@
-#Chaya's Cafe
+# Chaya's Cafe
 
 This is a simple CRUD application that shows a menu with different for different types of courses. The user can view a list of items that belong to a particular menu, add items to an existing menu, and delete an item.
 
