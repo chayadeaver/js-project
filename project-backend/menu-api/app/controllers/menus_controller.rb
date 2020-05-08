@@ -6,6 +6,6 @@ class MenusController < ApplicationController
 
     def show
         menu = Menu.find_by(id: params[:id])
-        render json: MenuSerializer.new(menu).serialized_json
+        render json: MenuSerializer.new(menu).serializable_hash
     end
 end
