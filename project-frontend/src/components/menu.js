@@ -47,38 +47,50 @@ class Menu {
     }
     
     renderBreakfastItems() {
+        const breakfastItems = []
         this.menusAdapter.getMenus().then(menus => {
             menus[0].attributes.items.forEach(item => {
                 const breakfastItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
-                breakfastItem.createItemCard()
+                breakfastItems.push(breakfastItem)
             })
+            const sortedBreakfastItems = breakfastItems.sort((a,b) => a.name.localeCompare(b.name))
+            sortedBreakfastItems.forEach(item => item.createItemCard())
         })
     }
 
     renderLunchItems() {
+        const lunchItems = []
         this.menusAdapter.getMenus().then(menus => {
             menus[1].attributes.items.forEach(item => {
                 const lunchItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
-                lunchItem.createItemCard()
+                lunchItems.push(lunchItem)
             })
+            const sortedLunchItems = lunchItems.sort((a,b) => a.name.localeCompare(b.name))
+            sortedLunchItems.forEach(item => item.createItemCard())
         })
     }
 
     renderDinnerItems() {
+        const dinnerItems = []
         this.menusAdapter.getMenus().then(menus => {
             menus[2].attributes.items.forEach(item => {
                 const dinnerItem = new Item(item.name, item.price, item.description, item.image_url, item.id, item.menu_id)
-                dinnerItem.createItemCard()
+                dinnerItems.push(dinnerItem)
             })
+            const sortedDinnerItems = dinnerItems.sort((a,b) => a.name.localeCompare(b.name))
+            sortedDinnerItems.forEach(item => item.createItemCard())
         })
     }
 
     renderAllItems() {
+        const allItems = []
         this.itemsAdapter.getItems().then(items => {
             items.forEach(item => {
                 const itemObj = new Item(item.attributes.name, item.attributes.price, item.attributes.description, item.attributes.image_url, item.id, item.attributes.menu.id, item.attributes.menu.name)
-                itemObj.createItemCard()
+                allItems.push(itemObj)
             });
+            const sortedAllItems = allItems.sort((a,b) => a.name.localeCompare(b.name))
+            sortedAllItems.forEach(item => item.createItemCard())
         })
     }
 
