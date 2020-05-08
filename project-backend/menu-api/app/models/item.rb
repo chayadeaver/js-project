@@ -4,4 +4,5 @@ class Item < ApplicationRecord
     validates :price, presence: true
     validates :description, presence: true
 
+    
 end
