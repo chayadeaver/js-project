@@ -10,3 +10,5 @@ To test this repository, please fork and clone this repository.
 2. Inside `project-backend` directory, `cd` into `menu-api` directory and run the server with `rails server` or `rails s`.
 3. Open another tab and `cd` into `project-frontend` directory.
 4. Inside `project-frontend` directory, type `open index.html` to open `index.html` in the browser to begin navigating through this application.
+
+To view this app on the browser, go [here](https://chayadeaver.github.io/js-project/menu-client/)
