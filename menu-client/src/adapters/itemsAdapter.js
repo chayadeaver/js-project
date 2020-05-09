@@ -18,6 +18,7 @@ class ItemsAdapter {
             body: JSON.stringify(data)
         })
         .then(resp => resp.json())
+        .catch(err => alert(err))
     }
 
     deleteItems(id) {
