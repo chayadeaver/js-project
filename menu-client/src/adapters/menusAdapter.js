@@ -1,6 +1,6 @@
 class MenusAdapter{
     constructor() {
-        this.baseURL = "http://localhost:3000/menus"
+        this.baseURL = "https://cafe-menu-api.herokuapp.com/menus"
     }
 
     getMenus() {
