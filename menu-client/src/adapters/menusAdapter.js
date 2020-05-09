@@ -1,6 +1,6 @@
 class MenusAdapter{
     constructor() {
-        this.baseURL = "http://cafe-menu-api.herokuapp.com/menus"
+        this.baseURL = "https://cafe-menu-api.herokuapp.com/menus"
     }
 
     getMenus() {
