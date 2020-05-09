@@ -1,6 +1,6 @@
 class ItemsAdapter {
     constructor() {
-        this.baseURL = "https://cafe-menu-api.herokuapp.com/items"
+        this.baseURL = "http://cafe-menu-api.herokuapp.com/items"
     }
 
     getItems(){
