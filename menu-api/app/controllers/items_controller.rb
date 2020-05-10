@@ -16,13 +16,13 @@ class ItemsController < ApplicationController
         end
     end
 
-    def destroy
-        item = Item.find_by(id: params[:id])
-        if item.destroy
-            render json: { message: "Item deleted"}
-        end
+    # def destroy
+    #     item = Item.find_by(id: params[:id])
+    #     if item.destroy
+    #         render json: { message: "Item deleted"}
+    #     end
 
-    end
+    # end
 
 private
 

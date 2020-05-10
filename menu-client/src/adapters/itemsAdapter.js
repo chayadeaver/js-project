@@ -21,14 +21,14 @@ class ItemsAdapter {
         .catch(err => alert(err))
     }
 
-    deleteItems(id) {
-        return fetch(`${this.baseURL}/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(resp => resp.json())
-    }
+    // deleteItems(id) {
+    //     return fetch(`${this.baseURL}/${id}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //     .then(resp => resp.json())
+    // }
 }
 

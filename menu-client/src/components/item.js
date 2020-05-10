@@ -37,20 +37,20 @@ class Item {
         const itemDesc = document.createElement("div")
         itemDesc.className = "item-description"
         itemDesc.textContent = this.description
-        const deleteBtn = document.createElement("button")
-        deleteBtn.className = "delete-item"
-        deleteBtn.textContent = "Delete Item"
-        deleteBtn.addEventListener("click", (e) => this.deleteItem(e))
+        // const deleteBtn = document.createElement("button")
+        // deleteBtn.className = "delete-item"
+        // deleteBtn.textContent = "Delete Item"
+        // deleteBtn.addEventListener("click", (e) => this.deleteItem(e))
         //appending to parent
         // itemImage.appendChild(imgTag)
         itemNamePrice.append(itemName, itemPrice)
-        itemCard.append(itemImage, itemNamePrice, itemDesc, deleteBtn)
+        itemCard.append(itemImage, itemNamePrice, itemDesc)
         container.append(itemCard)
     }
 
-    deleteItem(e) {
-        const id = e.target.parentElement.dataset.id
-        this.itemsAdapter.deleteItems(id).then(() => e.target.parentElement.remove() )
-    }
+    // deleteItem(e) {
+    //     const id = e.target.parentElement.dataset.id
+    //     this.itemsAdapter.deleteItems(id).then(() => e.target.parentElement.remove() )
+    // }
 }
 
