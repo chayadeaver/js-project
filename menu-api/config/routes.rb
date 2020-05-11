@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "home#welcome"
   resources :menus do
     resources :items
   end
