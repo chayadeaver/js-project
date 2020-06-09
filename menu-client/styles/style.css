@@ -49,6 +49,7 @@ h1 {
     margin: auto;
 } */
 
+/* Nav bar */
 ul#menu {
     list-style-type: none;
     display: flex;
@@ -79,6 +80,7 @@ ul#menu {
     padding: 20px;
 }
 
+/* Item card */
 .item-card {
     width: 300px;
     color: #9C5F5F;

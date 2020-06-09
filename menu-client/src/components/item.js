@@ -1,3 +1,5 @@
+// This class deals with creating DOM elements
+
 class Item {
     constructor(name, price, description, image_url, id, menu_id, menu_name){
         this.name = name

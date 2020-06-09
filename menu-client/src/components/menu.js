@@ -1,3 +1,4 @@
+// This class deals with rendering DOM elements and handling events
 class Menu {
     constructor(name){
         this.name = name

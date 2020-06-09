@@ -1,3 +1,4 @@
+// fetches from Items API
 class ItemsAdapter {
     constructor() {
         this.baseURL = "https://cafe-menu-api.herokuapp.com/items"

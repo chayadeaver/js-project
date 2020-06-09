@@ -1,3 +1,4 @@
+// starts the application
 class App {
     start() {
         const menu = new Menu()

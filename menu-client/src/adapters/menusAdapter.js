@@ -1,3 +1,5 @@
+// fetches from the Menus API
+
 class MenusAdapter{
     constructor() {
         this.baseURL = "https://cafe-menu-api.herokuapp.com/menus"
