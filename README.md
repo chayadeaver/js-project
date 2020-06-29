@@ -1,14 +1,36 @@
 # Chaya's Cafe
+A web application using JavaScript to render frontend and Rails API to manage backend.
 
-This is a single page application that shows a menu with different for different types of courses. The user can view a list of items that belong to a particular menu, add items to an existing menu, and delete an item.
+![js-project-demo](menu-client/assets/images/js-project-demo.gif)
 
-It uses Rails API as server and JavaScript as the client. It showcases fetch requests from the client to the server to render menu items to the DOM, create new items to the database via POST requests, and delete items from server via DELETE requests.
+[Demo](https://www.loom.com/share/3bdc454461b3424d8874676366aaf5c6) | [Deployed App](https://chayadeaver.github.io/js-project/menu-client/)
 
-To test this repository, please fork and clone this repository. 
+## Features
 
-1. `cd` into `js project` and then `cd` into `project-backend` directory.
-2. Inside `project-backend` directory, `cd` into `menu-api` directory and run the server with `rails server` or `rails s`.
-3. Open another tab and `cd` into `project-frontend` directory.
-4. Inside `project-frontend` directory, type `open index.html` to open `index.html` in the browser to begin navigating through this application.
+* Shows ability to make fetch requests to API via AJAX 
+* Uses vanilla JavaScript to render HTML and CSS elements to the DOM
+* Allows user to view items filtered by menu type
+* Allows user to add new items
 
-To view this app on the browser, go [here](https://chayadeaver.github.io/js-project/menu-client/)
+## Tech Used
+* Ruby [2.6.1]
+* Rails [6.0.2] - generated as an API only
+* Postgresql - database
+* Rack-cors - allow for cross-orgin resource sharing
+* Fast_json_api - serializer to manage seeded data in json format
+
+## To Install 
+
+### Backend
+* Clone this repo to local machin `git clone <this-repo>`
+* `cd` into project directory and into `project-backend` and run `bundle install` to install dependencies
+* Make sure Postgres app is running. To install Postgres app, go [here](https://www.postgresql.org/download/)
+* Run `rails db:create` to create a database
+* Run `rails db:migrate` to create tables 
+* Run `rails db:seed` to generate seed data
+* Run `rails s` to run server
+
+### Frontend
+* Open another tab in terminal and `cd` into `project-frontend` directory.
+* Inside `project-frontend` directory, type `open index.html` to open `index.html` in the browser to begin navigating through this application.
+
