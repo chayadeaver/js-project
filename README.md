@@ -3,7 +3,7 @@ A web application using JavaScript to render frontend and Rails API to manage ba
 
 ![js-project-demo](menu-client/assets/images/js-project-demo.gif)
 
-[Demo](https://www.loom.com/share/3bdc454461b3424d8874676366aaf5c6) | [Deployed App](https://chayadeaver.github.io/js-project/menu-client/)
+[Demo](https://www.loom.com/share/856b860605c64c59bd4318170cc17137) | [Deployed App](https://chayadeaver.github.io/js-project/menu-client/)
 
 ## Features
 
